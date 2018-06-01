@@ -253,6 +253,16 @@ class Api
 	}
 
 	/**
+	 * Returns all accounts (tempo).
+	 *
+	 * @return Result|false
+	 */
+	public function getAccounts()
+	{
+		return $this->api(self::REQUEST_GET, '/rest/tempo-accounts/1/account');
+	}
+
+	/**
 	 * Returns one project.
 	 *
 	 * @param string $project_key Project key.
