@@ -1025,4 +1025,31 @@ class Api
 
         return $response;
     }
+
+	/**
+	 * Query users.
+	 *
+	 * @param $username
+	 * @param integer $start_at Start at.
+	 * @param integer $max_results Max results.
+	 * @param bool $includeActive
+	 * @param bool $includeInactive
+	 * @return Result|false
+	 */
+	public function searchUsers($username = '%', $start_at = null, $max_results = null, $includeActive = true, $includeInactive = false)
+	{
+		$result = $this->api(
+			self::REQUEST_GET,
+			'/rest/api/2/user/search',
+			array(
+				'username' => $username,
+				'startAt' => $start_at,
+				'maxResults' => $max_results,
+				'includeActive' => $includeActive,
+				'includeInactive' => $includeInactive
+			)
+		);
+
+		return $result;
+	}
 }
